@@ -15,7 +15,7 @@
 [![Made by NUST students](https://img.shields.io/badge/made%20by-NUST%20students-14b8a6?style=flat-square)](#)
 [![GDGoC](https://img.shields.io/badge/GDGoC-NUST-4285F4?style=flat-square)](#)
 [![Good first issues](https://img.shields.io/github/issues/WaasilaAsif/learn-your-own-x/good%20first%20issue?style=flat-square&color=7057ff&label=good%20first%20issues)](https://github.com/WaasilaAsif/learn-your-own-x/labels/good%20first%20issue)
-[![Stars](https://img.shields.io/github/stars/WaasilaAsif/learn-your-own-x?style=social)](https://github.com/WaasilaAsif/learn-your-own-x/stargazers)
+[![Stars](https://img.shields.io/github/stars/WaasilaAsif/learn-your-own-x?style=social)](https://github.com/WaasilaAsif/Learn-your-own-x/stargazers)
 
 </div>
 
