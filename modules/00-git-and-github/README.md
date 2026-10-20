@@ -11,9 +11,16 @@ You practice the whole workflow in a safe sandbox — the [**git-practice**](htt
 
 Before the workshop, have these ready. Setup at the venue eats the whole session.
 
-- Git installed: run `git --version` and see a version number. Downloads: [git-scm.com](https://git-scm.com/downloads)
-- A GitHub account
+**New to GitHub?** Walk through these two guides first — they take ~30 min total:
+-[Setting up GitHub (complete beginners)](setup-github-account.md) — account, 2FA, profile
+-[Git on the command line](git-cli-basics.md) — install Git, configure it, learn the commands
+
+
+**Already set up?** Just confirm:
+- Git installed: run `git --version` and see a version number
+- A GitHub account with 2FA on
 - A code editor (VS Code is fine)
+
 
 ## Checkpoint 1: Git knows who you are
 
@@ -96,6 +103,7 @@ Pair with someone. Both of you add a line to the **same spot** in the practice r
 - [Pro Git](https://git-scm.com/book/en/v2), free, chapters 2 and 3 cover everything you used today
 - [first-contributions](https://github.com/firstcontributions/first-contributions)
 - [Good first issues](https://goodfirstissue.dev), when you're ready for a real project
+- [Git cheatsheet](git-cheatsheet.md) — commands, flags, and advanced tricks
 
 ## Done? Make it count
 
