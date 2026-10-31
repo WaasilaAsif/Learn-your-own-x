@@ -1,0 +1,8 @@
+# MCP Python SDK 2.x. The [cli] extra adds the `mcp` command (mcp dev, mcp run).
+# The spec and SDK move fast -- if something breaks, check the current version
+# at https://pypi.org/project/mcp/ . Pinned to the 2.x line this module targets.
+mcp[cli]>=2.0,<3.0
+
+# For host.py (checkpoint 5): the OpenAI-compatible client used to talk to a
+# free LLM -- local Ollama or Groq's free API. Not needed for checkpoints 1-4.
+openai>=1.40

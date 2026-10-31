@@ -1,0 +1,10 @@
+{
+  "_comment": "Checkpoint 5. Copy this block into Claude Desktop's real config file, then restart Claude Desktop. Config file location -- macOS: ~/Library/Application Support/Claude/claude_desktop_config.json | Windows: %AppData%\\Claude\\claude_desktop_config.json | Linux: ~/.config/Claude/claude_desktop_config.json",
+  "_replace": "Change BOTH paths below. 'command' = the full path to the python inside your venv (run `where python` on Windows / `which python` on macOS/Linux with the venv active). 'args' = the absolute path to server.py.",
+  "mcpServers": {
+    "learn-your-own-x": {
+      "command": "C:\\ABSOLUTE\\PATH\\TO\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\ABSOLUTE\\PATH\\TO\\modules\\03-mcp-server\\starter\\server.py"]
+    }
+  }
+}
