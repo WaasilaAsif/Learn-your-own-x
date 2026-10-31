@@ -34,7 +34,9 @@ Maintained by [Waasila Asif](https://github.com/WaasilaAsif). Workshops run by t
 | # | Module | You'll build | Domain | Status |
 |---|--------|--------------|--------|--------|
 | 00 | [Git and GitHub](modules/00-git-and-github/) | Your first merged pull request + a First PR badge on your profile | All | 🟡 In progress |
-| 01 | TBD | | | ⚪ Planned |
+| 01 | [Shell and scripting](modules/01-shell-and-scripting/) | A shell script that summarizes a server log | All (from MIT Missing Semester) | 🟡 Draft |
+| 02 | [Password cracking with wordlists](modules/02-password-cracking/) | A wordlist cracker, then the defenses that beat it | Cybersecurity | 🟡 Draft |
+| 03 | [Set up your own MCP server](modules/03-mcp-server/) | An MCP server a model can call tools on | AI/ML | 🟡 Draft |
 
 ## How to use this repo
 

@@ -1,0 +1,4 @@
+# Checkpoint 2 (cracking) needs nothing but the Python standard library.
+# Checkpoints 3-4 (defenses) need these:
+bcrypt>=4.1
+argon2-cffi>=23.1

@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Module 02: practice hashes a learner makes from their own passwords
+my_hashes.txt
+
+# Module 03: local test artifact
+sample.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
