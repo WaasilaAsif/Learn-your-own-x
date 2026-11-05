@@ -43,6 +43,15 @@ Maintained by [Waasila Asif](https://github.com/WaasilaAsif). Workshops run by t
 | 07 | [Build your own "Wrapped"](modules/07-your-own-wrapped/) | A personal Spotify-Wrapped-style report from your own data | Data (All) | 🔵 Proposed |
 | 08 | [Build your own chatbot](modules/08-your-own-chatbot/) | A chatbot with a personality, memory, and one tool | AI/ML (All) | 🔵 Proposed |
 
+## Buildathons
+
+Not every build is about getting it right. These are timed, for-the-bit challenges — build, demo, vote. Each has a submission README you add your project to, and a worked example that runs offline.
+
+| Challenge | The dare | Submit |
+|-----------|----------|--------|
+| [Most Inconvenient Feature](modules/buildathon-most-inconvenient-feature/) | Build something that works perfectly and is miserable to use | [add your entry](modules/buildathon-most-inconvenient-feature/#submissions) |
+| [Most Useless Feature](modules/buildathon-most-useless-feature/) | Build something that works and achieves absolutely nothing (if it's useful, it's disqualified) | [add your entry](modules/buildathon-most-useless-feature/#submissions) |
+
 ## How to use this repo
 
 1. Fork this repo, then clone your fork.
