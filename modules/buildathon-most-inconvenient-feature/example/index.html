@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Inconvenient Timer</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; font-family: system-ui, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 1.25rem; padding: 2rem 1rem 6rem; text-align: center;
+    background: #0f172a; color: #e2e8f0;
+  }
+  h1 { margin: 0; font-size: 1.5rem; }
+  p.sub { margin: 0; color: #94a3b8; max-width: 34rem; }
+  #clock {
+    font-variant-numeric: tabular-nums; font-size: clamp(3rem, 18vw, 7rem);
+    font-weight: 800; letter-spacing: 2px; line-height: 1;
+  }
+  #clock.ringing { color: #f87171; animation: flash .4s steps(2) infinite; }
+  @keyframes flash { 50% { opacity: .25; } }
+  .row { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; }
+  button {
+    font: inherit; font-weight: 600; padding: .7rem 1.1rem; border-radius: .6rem;
+    border: 1px solid #334155; background: #1e293b; color: #e2e8f0; cursor: pointer;
+  }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+  #start { background: #16a34a; border-color: #16a34a; color: #fff; }
+  #stop  { background: #dc2626; border-color: #dc2626; color: #fff; }
+  /* the star of the show: it runs away */
+  #add {
+    position: fixed; background: #2563eb; border-color: #2563eb; color: #fff;
+    transition: top .12s ease, left .12s ease; z-index: 10; white-space: nowrap;
+  }
+  .hint { color: #64748b; font-size: .85rem; max-width: 30rem; }
+  code { background: #1e293b; padding: .1rem .35rem; border-radius: .3rem; }
+</style>
+</head>
+<body>
+  <h1>The Inconvenient Timer</h1>
+  <p class="sub">A real countdown timer. It works perfectly. You just can't set it
+    without suffering: the only way to add time is the <strong>+1&nbsp;second</strong>
+    button&nbsp;&mdash; and it runs away after every click.</p>
+
+  <div id="clock">00:00</div>
+
+  <div class="row">
+    <button id="start" disabled>Start</button>
+    <button id="stop" disabled>Stop</button>
+    <button id="reset">Reset</button>
+  </div>
+
+  <p class="hint">Target set so far: <span id="count">0</span> second(s).
+    Want 5 minutes? That's 300 clicks. Good luck catching the button.</p>
+
+  <!-- the dodging button lives outside the normal flow -->
+  <button id="add">+1 second</button>
+
+<script>
+(function () {
+  "use strict";
+
+  var target = 0;        // seconds the user has painstakingly dialled in
+  var remaining = 0;     // seconds left while running
+  var tick = null;       // setInterval handle
+  var running = false;
+
+  var clock = document.getElementById("clock");
+  var count = document.getElementById("count");
+  var addBtn = document.getElementById("add");
+  var startBtn = document.getElementById("start");
+  var stopBtn = document.getElementById("stop");
+  var resetBtn = document.getElementById("reset");
+
+  function fmt(total) {
+    var m = Math.floor(total / 60);
+    var s = total % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  function render(total) { clock.textContent = fmt(total); }
+
+  // Move the +1 button to a random spot, always fully on-screen and clickable.
+  // Clamping is the whole "it must still work" rule: inconvenient, never impossible.
+  function dodge() {
+    var pad = 8;
+    var w = addBtn.offsetWidth || 120;
+    var h = addBtn.offsetHeight || 44;
+    var maxLeft = Math.max(pad, window.innerWidth - w - pad);
+    var maxTop = Math.max(pad, window.innerHeight - h - pad);
+    addBtn.style.left = (pad + Math.random() * (maxLeft - pad)) + "px";
+    addBtn.style.top = (pad + Math.random() * (maxTop - pad)) + "px";
+  }
+
+  // A short beep with WebAudio so there's no external sound file.
+  function alarm() {
+    try {
+      var ctx = new (window.AudioContext || window.webkitAudioContext)();
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = "square";
+      osc.frequency.value = 880;
+      osc.connect(gain); gain.connect(ctx.destination);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      osc.start();
+      osc.stop(ctx.currentTime + 1.2);
+    } catch (e) { /* audio blocked; the visual flash still fires */ }
+  }
+
+  function stop(reset) {
+    if (tick) { clearInterval(tick); tick = null; }
+    running = false;
+    clock.classList.remove("ringing");
+    stopBtn.disabled = true;
+    addBtn.disabled = false;
+    startBtn.disabled = target === 0;
+    if (reset) { target = 0; count.textContent = "0"; render(0); }
+  }
+
+  addBtn.addEventListener("click", function () {
+    if (running) return;
+    target += 1;                 // the only way to add time
+    count.textContent = String(target);
+    render(target);
+    startBtn.disabled = false;
+    dodge();                     // ...and now go chase it
+  });
+
+  startBtn.addEventListener("click", function () {
+    if (running || target === 0) return;
+    running = true;
+    remaining = target;
+    render(remaining);
+    startBtn.disabled = true;
+    addBtn.disabled = true;
+    stopBtn.disabled = false;
+    tick = setInterval(function () {
+      remaining -= 1;
+      render(Math.max(0, remaining));
+      if (remaining <= 0) {
+        clearInterval(tick); tick = null; running = false;
+        stopBtn.disabled = true;
+        clock.classList.add("ringing");
+        alarm();
+      }
+    }, 1000);
+  });
+
+  stopBtn.addEventListener("click", function () { stop(false); });
+  resetBtn.addEventListener("click", function () { stop(true); });
+
+  // keep it reachable if the window is resized mid-chase
+  window.addEventListener("resize", function () { if (!running) dodge(); });
+
+  // initial placement
+  dodge();
+  render(0);
+})();
+</script>
+</body>
+</html>
