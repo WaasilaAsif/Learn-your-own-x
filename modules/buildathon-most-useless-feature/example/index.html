@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Useless Machine</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; font-family: system-ui, sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 2rem 1rem; text-align: center;
+    background: #0f172a; color: #e2e8f0;
+  }
+  h1 { margin: 0; font-size: 1.5rem; }
+  p.sub { margin: 0; color: #94a3b8; max-width: 32rem; }
+
+  /* the machine: a box holding a switch the "hand" reaches into */
+  .machine {
+    position: relative; width: 260px; height: 150px; border-radius: 1rem;
+    background: #1e293b; border: 2px solid #334155; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .switch {
+    width: 90px; height: 150px; border-radius: 999px; border: none; cursor: pointer;
+    background: #475569; position: relative; transition: background .25s ease;
+    padding: 0;
+  }
+  .switch.on { background: #16a34a; }
+  .knob {
+    position: absolute; left: 8px; bottom: 8px; width: 74px; height: 74px;
+    border-radius: 50%; background: #e2e8f0; transition: bottom .25s ease;
+  }
+  .switch.on .knob { bottom: 68px; }
+  .label {
+    position: absolute; width: 100%; text-align: center; font-weight: 700;
+    font-size: .8rem; color: #0f172a; pointer-events: none;
+  }
+  .label.top { top: 10px; } .label.bottom { bottom: 10px; color:#e2e8f0; }
+
+  /* the hand slides in from the right to flip it back off */
+  .hand {
+    position: absolute; right: -90px; top: 50%; transform: translateY(-50%);
+    font-size: 3rem; transition: right .35s ease; pointer-events: none;
+  }
+  .hand.reaching { right: 70px; }
+
+  #status { font-size: 1.1rem; font-weight: 600; min-height: 1.5rem; }
+  #count { color: #94a3b8; }
+  code { background: #1e293b; padding: .1rem .35rem; border-radius: .3rem; }
+</style>
+</head>
+<body>
+  <h1>The Useless Machine</h1>
+  <p class="sub">Go on, turn it on. It works perfectly. It just will not stay on,
+    which means it does&nbsp;&mdash; and achieves&nbsp;&mdash; absolutely nothing.</p>
+
+  <div class="machine">
+    <button class="switch" id="switch" aria-label="Useless switch">
+      <span class="label top">ON</span>
+      <span class="label bottom">OFF</span>
+      <span class="knob"></span>
+    </button>
+    <span class="hand" id="hand" aria-hidden="true">&#128072;</span>
+  </div>
+
+  <div id="status">It is off. As it should be.</div>
+  <div id="count">Times you tried: <span id="n">0</span></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var on = false;
+  var tries = 0;
+  var pending = null;   // timer that flips it back off
+
+  var sw = document.getElementById("switch");
+  var hand = document.getElementById("hand");
+  var status = document.getElementById("status");
+  var n = document.getElementById("n");
+
+  var taunts = [
+    "Nice try.", "No.", "It is not your destiny.",
+    "The machine has spoken.", "Was that supposed to do something?",
+    "Still off. Shocking.", "You and I both know how this ends."
+  ];
+
+  function render() {
+    sw.classList.toggle("on", on);
+    sw.setAttribute("aria-pressed", String(on));
+  }
+
+  function turnOffByItself() {
+    hand.classList.add("reaching");          // the hand slides in...
+    setTimeout(function () {
+      on = false;                            // ...and flips it off
+      render();
+      hand.classList.remove("reaching");
+      status.textContent = taunts[Math.floor(Math.random() * taunts.length)];
+    }, 350);
+  }
+
+  sw.addEventListener("click", function () {
+    if (on) {
+      // if somehow on, let them turn it off; the machine doesn't mind
+      if (pending) { clearTimeout(pending); pending = null; }
+      on = false; render();
+      status.textContent = "It is off. As it should be.";
+      return;
+    }
+    // turning it ON: honored for exactly one dramatic moment
+    on = true; render();
+    tries += 1; n.textContent = String(tries);
+    status.textContent = "On! For now...";
+    pending = setTimeout(function () { pending = null; turnOffByItself(); }, 700);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
