@@ -37,6 +37,11 @@ Maintained by [Waasila Asif](https://github.com/WaasilaAsif). Workshops run by t
 | 01 | [Shell and scripting](modules/01-shell-and-scripting/) | A shell script that summarizes a server log | All (from MIT Missing Semester) | 🟡 Draft |
 | 02 | [Password cracking with wordlists](modules/02-password-cracking/) | A wordlist cracker, then the defenses that beat it | Cybersecurity | 🟡 Draft |
 | 03 | [Set up your own MCP server](modules/03-mcp-server/) | An MCP server a model can call tools on | AI/ML | 🟡 Draft |
+| 04 | [Build your own ray tracer](modules/04-ray-tracer/) | A ray tracer that renders shaded, reflecting spheres to an image | Graphics | 🔵 Proposed |
+| 05 | [Neural network from scratch](modules/05-neural-net-from-scratch/) | A pure-NumPy net that recognizes handwritten digits | AI/ML | 🔵 Proposed |
+| 06 | [Build your own database](modules/06-your-own-database/) | A crash-proof key–value store with a log, index, and compaction | Systems | 🔵 Proposed |
+| 07 | [Build your own "Wrapped"](modules/07-your-own-wrapped/) | A personal Spotify-Wrapped-style report from your own data | Data (All) | 🔵 Proposed |
+| 08 | [Build your own chatbot](modules/08-your-own-chatbot/) | A chatbot with a personality, memory, and one tool | AI/ML (All) | 🔵 Proposed |
 
 ## How to use this repo
 
