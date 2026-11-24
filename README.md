@@ -19,6 +19,7 @@
 
 </div>
 
+> 🏆 **GDGoC NUST × Capital Youth Expo 2026:** submitting? Start at [events/cye-2026](events/cye-2026/).
 ---
 
 Each module is a handout for a live workshop run by GDGoC NUST, and a self-paced guide for anyone else. Every module has starter code that runs on day one, and staged checkpoints you can verify yourself.
@@ -34,7 +35,16 @@ Maintained by [Waasila Asif](https://github.com/WaasilaAsif). Workshops run by t
 | # | Module | You'll build | Domain | Status |
 |---|--------|--------------|--------|--------|
 | 00 | [Git and GitHub](modules/00-git-and-github/) | Your first merged pull request + a First PR badge on your profile | All | 🟡 In progress |
-| 01 | TBD | | | ⚪ Planned |
+| — | [CYE 2026 submissions](events/cye-2026/) | Your hackathon or AI challenge entry | All | 🟢 Open |
+
+## Buildathons
+
+Not every build is about getting it right. These are timed, for-the-bit challenges — build, demo, vote. Each has a submission README you add your project to, and a worked example that runs offline.
+
+| Challenge | The dare | Submit |
+|-----------|----------|--------|
+| [Most Inconvenient Feature](modules/buildathon-most-inconvenient-feature/) | Build something that works perfectly and is miserable to use | [add your entry](modules/buildathon-most-inconvenient-feature/#submissions) |
+| [Most Useless Feature](modules/buildathon-most-useless-feature/) | Build something that works and achieves absolutely nothing (if it's useful, it's disqualified) | [add your entry](modules/buildathon-most-useless-feature/#submissions) |
 
 ## How to use this repo
 

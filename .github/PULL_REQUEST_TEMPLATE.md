@@ -7,6 +7,7 @@
 - [ ] Module 00: adding myself to contributors
 - [ ] New module
 - [ ] Fix or improvement to an existing module
+- [ ] CYE 2026 submission (AI Challenge or Hackathon)
 - [ ] Other
 
 ## Checklist
