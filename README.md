@@ -19,6 +19,7 @@
 
 </div>
 
+> 🏆 **GDGoC NUST × Capital Youth Expo 2026:** submitting? Start at [events/cye-2026](events/cye-2026/).
 ---
 
 Each module is a handout for a live workshop run by GDGoC NUST, and a self-paced guide for anyone else. Every module has starter code that runs on day one, and staged checkpoints you can verify yourself.
