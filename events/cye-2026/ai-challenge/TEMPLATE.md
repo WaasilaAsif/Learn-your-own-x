@@ -1,4 +1,7 @@
 # Team: [team name]
+#The file name should be as TEAME-NAME.md
+
+All this info would facilitate the judges to rank you but is optional
 
 - Members: [name, school, batch], ...
 - Kaggle team name: [name]
@@ -18,4 +21,3 @@
 - [ChatGPT / Claude / Copilot / pretrained model / library]
 - AI chat links: [links]
 (optional : it wont affect your ranking or markings)
-- What AI wrote vs what you changed: [2–3 lines]
