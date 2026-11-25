@@ -10,7 +10,7 @@ All this info would facilitate the judges to rank you but is optional
 ## Approach
 [3–4 lines: model, how you validated it, why]
 
-## Features you made
+## Features you made 
 - [feature]: [why it helps]
 
 ## Results
@@ -19,5 +19,5 @@ All this info would facilitate the judges to rank you but is optional
 
 ## AI and tools used
 - [ChatGPT / Claude / Copilot / pretrained model / library]
-- AI chat links: [links]
+- AI chat links: [links] 
 (optional : it wont affect your ranking or markings)
