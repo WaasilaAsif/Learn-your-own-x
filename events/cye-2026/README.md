@@ -2,6 +2,10 @@
 
 Submissions for the NUST round of the Capital Youth Expo AI Challenge and Innovation Sprint Hackathon.
 
+## Do not forget to add your and your team's name and CMS in the readme you submit
+
+> Only the team lead needs to submit the PR
+
 ## AI Challenge (Nov 25, 5:00–6:00 PM)
 1. Download your notebook: Kaggle → File → Download notebook, or Colab → File → Download → .ipynb.
 2. Open `events/cye-2026/ai-challenge/` → type a folder name in the path box: `your-team-name/` (lowercase, dashes). **Add file → Upload files**.
