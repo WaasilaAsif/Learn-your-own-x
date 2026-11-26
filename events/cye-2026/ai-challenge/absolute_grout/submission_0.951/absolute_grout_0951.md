@@ -1,6 +1,6 @@
 # Team: absolute_grout
 
-- Members: Adyaan Ahmed (479556); Abdul Moiz (464853); Muhammad Hamdan Ishfaq (455881)
+- Members: Adyaan Ahmed (479556); Abdul Moiz (464853); Muhammad Hamdan Ishfaq (455881), Muhammad Muntazar (470861)
 - Kaggle team name: absolute_grout
 - Final Kaggle public score: **0.951**
 
